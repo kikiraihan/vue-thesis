@@ -1,5 +1,7 @@
 # thesis-vue
+web client aplikasi thesis.
 
+title : leveraging network analytics and knowledge graph to identify virus vector
 ## Project setup
 ```
 yarn install

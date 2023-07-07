@@ -1,10 +1,13 @@
 <template style="background: #edf2f7;">
   <main class="min-h-screen w-full bg-gray-100 text-gray-700" x-data="layout">
+
+      <Navbar />
+
     <div class="flex h-screen">
-      <Sidebar />
+      <!-- <Sidebar /> -->
       <div class="w-full md:flex-auto overflow-scroll scroll-m-2">
-        <div class="p-4">
-          <router-view/>
+        <div class="p-4 mx-auto md:w-3/4">
+          <router-view />
         </div>
       </div>
     </div>
@@ -13,6 +16,7 @@
 
 <script>
   import Sidebar from '@/components/Sidebar.vue'
+  import Navbar from '@/components/Navbar.vue'
 
   export default {
     name: 'App',
@@ -33,8 +37,14 @@
       ]
     },
     components: {
-      Sidebar
-    }
+      Sidebar,
+      Navbar
+    },
+    mounted() {
+      // if(localStorage.getItem('graph')==null) localStorage.setItem('graph', JSON.stringify({}))
+      // const ini = localStorage.getItem('data')
+      // console.log(ini)
+    },
   }
 </script>
 

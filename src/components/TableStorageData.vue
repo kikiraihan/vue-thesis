@@ -1,6 +1,9 @@
 <template>
+
+  <hr class="mt-10 mb-4">
+
   <div class="home text-center">
-    halaman home
+    Data interaksi tersimpan
   </div>
   Data anda :
   <ul>
@@ -21,7 +24,7 @@
 
 <script>
 export default {
-  name: 'HomeView',
+  name: 'TableStorageData',
   data() {
     return {
       storage: Object.keys(localStorage),

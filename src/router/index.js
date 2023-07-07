@@ -12,6 +12,11 @@ const routes = [
     path: '/praproses',
     name: 'praproses',
     component: () => import('@/views/praprosesView.vue')
+  },
+  {
+    path: '/proses',
+    name: 'proses',
+    component: () => import('@/views/prosesView.vue')
   }
 ]
 

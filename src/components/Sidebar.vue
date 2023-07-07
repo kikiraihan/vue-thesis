@@ -32,8 +32,8 @@
       return {
         routes: [
           { path: "/", title: "Home", icon: "bx bx-home" },
-          { path: "/praproses", title: "Praproses", icon: "bx bx-file-find" },
-          // { path: "/proses", name: "proses", icon: "bx bx-analyse" },
+          { path: "/praproses", title: "Browse Data", icon: "bx bx-file-find" },
+          { path: "/proses", title: "Analyse Data", icon: "bx bx-analyse" },
           // { path: "/visualisasi", name: "visualisasi", icon: "bx bx-network-chart"},
         ]
       };
