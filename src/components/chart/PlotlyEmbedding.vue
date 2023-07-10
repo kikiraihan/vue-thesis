@@ -7,7 +7,7 @@
 
 <script>
 import Plotly from "plotly.js-dist-min";
-import { UMAP } from 'umap-js';
+// import { UMAP } from 'umap-js';
 import axios from "axios";
 import LoadingCenterImage from "@/components/atom/LoadingCenterImage.vue";
 import {_grupkanDataPerKolom} from "@/helpers/dictionary_serangga_helper.js";

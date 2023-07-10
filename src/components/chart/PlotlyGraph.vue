@@ -55,7 +55,7 @@ export default {
             // console.log(nx_node);
         } catch (error) {
             console.error(error);
-        } finally {
+        } finally { //dijalankan terus, perbedaan dengan diluar try catch lihat di notion belajar javascript
           this.isLoading = false; // Set loading state to false regardless of success or error
         }
     },
@@ -80,7 +80,7 @@ export default {
       var edge_trace = {
           x: edge_x,
           y: edge_y,
-          line: { width: 0.5, color: '#888' },
+          line: { width: 1.5, color: '#888' },
           hoverinfo: 'none',
           mode: 'lines',
           type: 'scatter'

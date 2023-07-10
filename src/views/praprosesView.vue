@@ -3,7 +3,7 @@
     <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mt-3">Akusisi data interaksi</h2>
 
     <div class="inline-block mb-6 py-2  text-sm text-gray-500">
-        masukan virus yang akan dianalisis serangga vektornya
+        Masukan virus yang akan diambil data interaksinya. Proses ini akan menggunakan teknik breadth first search (BFS) pada graf GloBI sedalam dua lapis interaksi. BFS dimulai dari virus yang dimasukan (1), kemudian serangga dan tanaman yang terhubung (2).
     </div>
 
     <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
@@ -88,7 +88,7 @@ import TableStorageDataVue from '@/components/TableStorageData.vue';
                         }
                     }
                     if (fromServer.df_node) {
-                        localStorage.setItem(virus_txt, JSON.stringify({
+                        localStorage.setItem(virus_txt.toLowerCase(), JSON.stringify({
                             node: fromServer.df_node,
                             edge: fromServer.df_edge,
                         }));

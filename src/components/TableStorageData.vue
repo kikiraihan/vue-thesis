@@ -9,17 +9,18 @@
   <ul>
     <li v-for="(item, key) in storage" :key="key">
       <!-- 🦠 🌱🪲 -->
-      <i class='bx bxs-leaf' ></i>
+      <!-- <i class='bx bxs-leaf' ></i>
       <i class='bx bxs-virus' ></i>
-      <i class='bx bxs-bug' ></i>
+      <i class='bx bxs-bug' ></i> -->
+      <i class='bx bx-network-chart ' ></i>
       {{item}} |
       <button @click="hapusData(item)" class="text-red-400">hapus</button> 
     </li>
   </ul>
   <br>
-  <button @click="addData">add data</button>
+  <!-- <button @click="addData">add data</button>
   <br>
-  <button @click="clearData">clear</button>
+  <button @click="clearData">clear</button> -->
 </template>
 
 <script>

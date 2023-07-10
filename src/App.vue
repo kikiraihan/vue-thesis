@@ -6,7 +6,7 @@
     <div class="flex h-screen">
       <!-- <Sidebar /> -->
       <div class="w-full md:flex-auto overflow-scroll scroll-m-2">
-        <div class="p-4 mx-auto md:w-3/4">
+        <div class="p-4 mx-auto xl:w-2/3">
           <router-view />
         </div>
       </div>

@@ -7,6 +7,7 @@ export const usePlotlyEmbeddingStore = defineStore('PlotlyEmbeddingStore', {
         list_of_entities: null,
         dictionary_serangga: null,
     }),
+    //computed properties
     getters: {
       grupDictionarySeranggaPerFamili: (state) => {
         const list_of_entities = state.list_of_entities
@@ -39,9 +40,6 @@ export const usePlotlyEmbeddingStore = defineStore('PlotlyEmbeddingStore', {
         return this._grupkanDataPerKolom(df_umap);
       },
     },
-    actions: {
-      increment() {
-        this.count++
-      },
-    },
+    //methods
+    actions: {},
   })
