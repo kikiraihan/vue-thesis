@@ -42,9 +42,20 @@
             Pada tahap ini setiap serangga akan dianalisis potensinya sebagai vektor <!-- dari <b style="color:#671F92">{{pilihan_data_interaksi}}</b> --> berdasarkan interaksinya pada graf dan taksonominya pada embedding. Proses ini akan menghasilkan skor akhir untuk setiap serangga yang kemudian akan diurutkan berdasarkan skor tersebut.
         </div>
     </div>
+
+    <div class="flex bg-neutral-50 rounded-lg p-4 mb-4 text-sm text-neutral-700" role="alert"  v-if="(tampil_proses_analisis) && takson_acuan_rekomendasi">
+        <i class='bx bx-info-circle mr-1'></i>
+        <div class="text-sm mb-2 text-justify">
+            <b class="capitalize" style="color: #671F92">{{pilihan_data_interaksi}}</b> berasal dari famili <b class="capitalize" style="color: #671F92">{{takson_virus['family']}}</b>. Famili virus tersebut memiliki asosiasi dengan serangga dari famili <b class="capitalize" style="color: #B22222">{{takson_acuan_rekomendasi}}</b>, sehingga takson acuannya adalah <b class="capitalize" style="color: #B22222">{{takson_acuan_rekomendasi}}</b>.
+        </div>
+    </div>
+
     
     <div v-if="tahapan>=1">
-        <div class="relative col-span-2">
+        <div v-if="!tampil_proses_analisis">
+            loading...
+        </div>
+        <div class="relative col-span-2" v-if="tampil_proses_analisis">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <i class="bx bx-bug text-2xl text-gray-500"></i>
             </div>
@@ -56,7 +67,7 @@
                 Proses
             </button>
         </div>
-        <span class="text-sm text-gray-500 pl-2"> *Takson acuan adalah ciri taksonomi (ordo, famili, atau genus) dari serangga yang telah diketahui sebelumnya adalah serangga vektor <!-- dan akan dijadikan acuan untuk mencari vektor virus -->.</span>
+        <span class="text-sm text-gray-500 pl-2" v-if="tampil_proses_analisis"> *Takson acuan adalah ciri taksonomi (ordo, famili, atau genus) dari serangga yang telah diketahui sebelumnya adalah serangga vektor <!-- dan akan dijadikan acuan untuk mencari vektor virus -->.</span>
         
     </div>
 
@@ -115,9 +126,9 @@
     //stores
     import {useDataToCountStore} from "@/stores/DataToCount.store.js";
     import {useEnhancementDataStore} from "@/stores/EnhancementData.store.js";
+    import { usePolaTaksonomiStore } from '@/stores/PolaTaksonomi.store';
 
 
-    
 
     export default {
         name: "ProsesView",
@@ -146,9 +157,14 @@
                 df_node: null,
                 df_edge: null,
                 pilihan_data_interaksi: null,
-                takson_acuan: null,
                 tahapan:null,//1 selesai parent init visualisasi, 2 selesai parent init analisis
                 isFullLoading:false,
+                //tahap 1
+                pola_taksonomi_store : usePolaTaksonomiStore(),
+                takson_virus: null,
+                tampil_proses_analisis: false,
+                takson_acuan: null,
+                takson_acuan_rekomendasi: null,
                 //tahap 2
                 data_to_count_store : useDataToCountStore(),
                 //tahap 3
@@ -175,19 +191,30 @@
                 this.df_node = _DataFromServerToDF(this.server_node);
                 this.df_edge = _DataFromServerToDF(this.server_edge); 
                 this.updateTahapan(1);
-                // this.updateTaksonAcuan();
+                this.updateTaksonAcuan();
             },
             async updateTaksonAcuan(){
+                this.tampil_proses_analisis = false;
                 const data={
                     virus: this.pilihan_data_interaksi,
                 };
                 try {
                     const response = await axios.post("http://127.0.0.1:8009/proses/get_taxonomy_from_string", data);
+                    if(response.data.status==404)
+                        throw new Error("Taksonomi virus tidak ditemukan");
                     const takson_virus = response.data.taxonomy;
-                    console.log(takson_virus['family']);
-                    // this.takson_acuan = ;
+                    this.takson_virus = takson_virus;
+                    if(!('family' in takson_virus))
+                        throw new Error("Famili virus tidak ditemukan");
+                    const famili_virus = takson_virus['family'];
+                    this.takson_acuan = this.pola_taksonomi_store.pola[famili_virus][0]
+                    this.takson_acuan_rekomendasi = this.takson_acuan
                 } catch (error) {
                     console.error(error);
+                    this.takson_acuan ='';
+                    this.takson_acuan_rekomendasi = null;
+                } finally {
+                    this.tampil_proses_analisis = true;
                 }
             },
             async prosesAnalisis(){

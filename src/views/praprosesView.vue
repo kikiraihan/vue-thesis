@@ -2,8 +2,8 @@
 
     <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mt-3">Akusisi data interaksi</h2>
 
-    <div class="inline-block mb-6 py-2  text-sm text-gray-500">
-        Masukan virus yang akan diambil data interaksinya. Proses ini akan menggunakan teknik breadth first search (BFS) pada graf GloBI sedalam dua lapis interaksi. BFS dimulai dari virus yang dimasukan (1), kemudian serangga dan tanaman yang terhubung (2).
+    <div class="inline-block mb-6 py-2  text-sm text-gray-500 text-justify">
+        Proses ini menggunakan GloBI, Wikidata, dan NCBI Taxon Ontology sebagai sumber data. Pencarian data menggunakan teknik breadth first search (BFS) pada graf GloBI sedalam dua lapis interaksi, dimulai dari interaksi virus yang dimasukan (1), kemudian interaksi serangga dan tanaman yang terhubung (2). Data kemudian dipraproses dan distandarisasi menggunakan taxonomy NCBI melalui Wikidata sebagai hub. Data yang tersimpan dapat digunakan untuk analisis serangga vektor.
     </div>
 
     <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
@@ -19,6 +19,7 @@
             Cari interaksi
         </button>
     </div>
+    <span class="text-sm text-gray-500 pl-2"> *Masukan virus yang akan diambil data interaksinya</span>
     <div class="w-full h-full block">
         <div class="flex items-center justify-between my-2">
             <p ref="persentase_bar" class="text-gray-400 text-sm"></p>
