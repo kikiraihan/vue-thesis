@@ -169,6 +169,8 @@
                 data_to_count_store : useDataToCountStore(),
                 //tahap 3
                 enhancement_data_store : useEnhancementDataStore(),
+                //env
+                VUE_APP_API_URL: process.env.VUE_APP_API_URL,
             };
         },
         methods: {
@@ -199,7 +201,7 @@
                     virus: this.pilihan_data_interaksi,
                 };
                 try {
-                    const response = await axios.post("http://127.0.0.1:8009/proses/get_taxonomy_from_string", data);
+                    const response = await axios.post(this.VUE_APP_API_URL+"/proses/get_taxonomy_from_string", data);
                     if(response.data.status==404)
                         throw new Error("Taksonomi virus tidak ditemukan");
                     const takson_virus = response.data.taxonomy;
@@ -227,7 +229,7 @@
                 };
 
                 try {
-                    const response = await axios.post("http://127.0.0.1:8009/proses/data_to_count", data);
+                    const response = await axios.post(this.VUE_APP_API_URL+"/proses/data_to_count", data);
                     this.data_to_count_store.$patch({
                         data_to_count: JSON.parse(response.data.data_to_count),
                     });
@@ -240,7 +242,7 @@
                 this.enhancement_data_store.$reset();
 
                 try {
-                    const response = await axios.get("http://127.0.0.1:8009/enhancement/wd-id/"+name);
+                    const response = await axios.get(this.VUE_APP_API_URL+"/enhancement/wd-id/"+name);
                     if(response.data.status=="404")
                         throw new Error("WD_ID tidak ditemukan");
                     const wd_id = response.data.wd_id;

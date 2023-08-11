@@ -47,7 +47,7 @@
     import PieProporsi from '@/components/chart/PieProporsi.vue';
     import TableStorageData from "@/components/TableStorageData.vue"
     import {_DataFromServerToDF} from '@/helpers/dataframe_helper.js'
-import TableStorageDataVue from '@/components/TableStorageData.vue';
+    import TableStorageDataVue from '@/components/TableStorageData.vue';
 
     export default {
         name: 'PraprosesView',
@@ -60,13 +60,15 @@ import TableStorageDataVue from '@/components/TableStorageData.vue';
                 node: null,
                 edge: null,
                 search: null,
+                //env
+                VUE_APP_API_URL: process.env.VUE_APP_API_URL,
             }
         },
         methods: {
             setupSSE() {
                 var self = this;
                 const virus_txt = this.search;
-                const url = "http://127.0.0.1:8009/praproses/";
+                const url = this.VUE_APP_API_URL+"/praproses/";
                 var source = new EventSource(url + virus_txt);
                 var message_bar = this.$refs.message_bar; 
                 var persentase_bar = this.$refs.persentase_bar; 

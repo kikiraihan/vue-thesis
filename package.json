@@ -11,6 +11,7 @@
     "axios": "^1.4.0",
     "core-js": "^3.8.3",
     "dataframe-js": "^1.4.4",
+    "path-browserify": "^1.0.1",
     "pinia": "^2.1.4",
     "plotly.js": "^2.23.2",
     "plotly.js-dist-min": "^2.23.2",
