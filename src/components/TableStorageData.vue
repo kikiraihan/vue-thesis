@@ -12,9 +12,9 @@
       <!-- <i class='bx bxs-leaf' ></i>
       <i class='bx bxs-virus' ></i>
       <i class='bx bxs-bug' ></i> -->
-      <i class='bx bx-network-chart ' ></i>
-      {{item}} |
-      <button @click="hapusData(item)" class="text-red-400">hapus</button> 
+      {{key+1}}. <i class='bx bx-network-chart ' ></i> {{item}} 
+      | <button @click="hapusData(item)" class="text-red-400">Hapus</button>
+      | <button @click="exportOneData(item)" class="text-blue-400">Download</button>
     </li>
   </ul>
   <br>
@@ -26,10 +26,10 @@
         class="text-white  bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
         Import Data
     </router-link>
-    <button @click="exportAllData"
+    <!-- <button @click="exportAllData"
         class="text-white  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
         Export Data
-    </button>
+    </button> -->
   </div>
 
   <br><br><br><br><br>
@@ -66,8 +66,12 @@ export default {
     },
     exportAllData(){
       this.storage.forEach((item) => {
+        // console.log(item);
         this.exportData(item, replaceSpaceWithUnderscore(item));
       });
+    },
+    exportOneData(item){
+      this.exportData(item, replaceSpaceWithUnderscore(item));
     },
     exportData(data_key, file_name) {
       // Retrieve data from localStorage
