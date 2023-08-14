@@ -103,7 +103,7 @@ export default {
       var node_trace = {
           x: node_x,
           y: node_y,
-          mode: 'markers',
+          mode: 'markers', // mode: 'markers+text',
           hoverinfo: 'text',
           marker: {
               reversescale: true,

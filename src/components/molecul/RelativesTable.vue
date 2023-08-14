@@ -64,6 +64,7 @@ export default {
         async showResult(taxon_id) {
             this.isLoading=true;
             this.isEmpty= false;
+            console.log(taxon_id);
             try {
                 // Menggunakan axios untuk melakukan permintaan POST
                 const response = await axios.get("http://127.0.0.1:8009/enhancement/relatives/"+taxon_id);

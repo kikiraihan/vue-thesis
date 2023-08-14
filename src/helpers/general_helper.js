@@ -24,3 +24,11 @@ export function rearrangeObject(data, pola){
   const modifiedObject = Object.fromEntries(reorderedObject);
   return modifiedObject;
 }
+
+export function replaceSpaceWithUnderscore(str){
+  return str.replace(/\s+/g, '_');
+}
+
+export function replaceUnderscoreWithSpace(str){
+  return str.replace(/_/g, ' ');
+}

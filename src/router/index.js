@@ -17,6 +17,11 @@ const routes = [
     path: '/proses',
     name: 'proses',
     component: () => import('@/views/prosesView.vue')
+  },
+  {
+    path: '/import-data',
+    name: 'import-data',
+    component: () => import('@/views/ImportDataView.vue')
   }
 ]
 

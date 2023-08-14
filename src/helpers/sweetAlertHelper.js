@@ -32,7 +32,7 @@ export function swalMessageErrorWithTimer(info) {
     //$('#modalInput').modal('hide');
 }
 
-export function swalAdded(counter) {
+export function swalAdded(message='berhasil menambahkan data!') {
     return {
         toast: true,
         position: 'top',
@@ -45,7 +45,7 @@ export function swalAdded(counter) {
         },
         icon: 'success',
         title: 'Berhasil',
-        text: 'berhasil menambahkan data!',
+        text: message,
     };
     //$('#modalInput').modal('hide');
 }
