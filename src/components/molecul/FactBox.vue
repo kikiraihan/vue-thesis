@@ -67,6 +67,8 @@ export default {
             picture: null,
             abstract: null,
             taxonomy: null,
+            //env
+            VUE_APP_API_URL: process.env.VUE_APP_API_URL,
         };
     },
     mounted() {
@@ -85,9 +87,9 @@ export default {
             this.isEmpty= false;
             try {
                 // Menggunakan axios untuk melakukan permintaan POST
-                let factResponse = axios.get("http://127.0.0.1:8009/enhancement/fact/"+wd_id);
-                let pictureResponse = axios.get("http://127.0.0.1:8009/enhancement/picture/"+wd_id);
-                let abstractResponse = axios.get("http://127.0.0.1:8009/enhancement/abstract/"+wd_id);
+                let factResponse = axios.get(this.VUE_APP_API_URL+"/enhancement/fact/"+wd_id);
+                let pictureResponse = axios.get(this.VUE_APP_API_URL+"/enhancement/picture/"+wd_id);
+                let abstractResponse = axios.get(this.VUE_APP_API_URL+"/enhancement/abstract/"+wd_id);
                 const [factSolved, pictureSolved, abstractSolved] = await Promise.all([
                     factResponse, pictureResponse, abstractResponse
                 ]);

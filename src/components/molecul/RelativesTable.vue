@@ -50,6 +50,8 @@ export default {
             isEmpty: false,
             items: null,
             enhancement_data_store : useEnhancementDataStore(),
+            //env
+            VUE_APP_API_URL: process.env.VUE_APP_API_URL,
         };
     },
     mounted() {
@@ -67,7 +69,7 @@ export default {
             console.log(taxon_id);
             try {
                 // Menggunakan axios untuk melakukan permintaan POST
-                const response = await axios.get("http://127.0.0.1:8009/enhancement/relatives/"+taxon_id);
+                const response = await axios.get(this.VUE_APP_API_URL+"/enhancement/relatives/"+taxon_id);
                 if(response.data.status=="404")
                     throw new Error("Data kerabat tidak ditemukan");
                 const relatives = response.data.relatives;

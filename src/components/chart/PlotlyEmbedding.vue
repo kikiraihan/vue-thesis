@@ -31,6 +31,8 @@ export default {
   data() {
     return {
       isLoading: false,
+      //env
+      VUE_APP_API_URL: process.env.VUE_APP_API_URL,
     };
   },
   mounted() {
@@ -48,7 +50,7 @@ export default {
 
         try {
           // Menggunakan axios untuk melakukan permintaan POST
-          const response = await axios.post("http://127.0.0.1:8009/visualisasi/embedding", data);
+          const response = await axios.post(this.VUE_APP_API_URL+"/visualisasi/embedding", data);
   
           const data_store = usePlotlyEmbeddingStore();
   

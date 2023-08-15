@@ -27,7 +27,9 @@ export default {
   },
   data() {
     return {
-      isLoading: false
+      isLoading: false,
+      //env
+      VUE_APP_API_URL: process.env.VUE_APP_API_URL,
     };
   },
   mounted() {
@@ -45,7 +47,7 @@ export default {
 
         try {
             // Menggunakan axios untuk melakukan permintaan POST
-            const response = await axios.post("http://127.0.0.1:8009/visualisasi/pos", data);
+            const response = await axios.post(this.VUE_APP_API_URL+"/visualisasi/pos", data);
             // Tangani respons dari server
             const pos = response.data.pos;
             const nx_edge = response.data.nx_edge;

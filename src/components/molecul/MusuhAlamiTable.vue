@@ -52,6 +52,8 @@ export default {
             isEmpty: false,
             items: null,
             enhancement_data_store : useEnhancementDataStore(),
+            //env
+            VUE_APP_API_URL: process.env.VUE_APP_API_URL,
         };
     },
     mounted() {
@@ -65,7 +67,7 @@ export default {
             this.isEmpty= false;
             try {
                 // Menggunakan axios untuk melakukan permintaan POST
-                const response = await axios.get("http://127.0.0.1:8009/enhancement/musuh-alami/"+name);
+                const response = await axios.get(this.VUE_APP_API_URL+"/enhancement/musuh-alami/"+name);
                 if(response.data.status=="404")
                     throw new Error("Data musuh alami tidak ditemukan");
                 const musuh_alami= {
