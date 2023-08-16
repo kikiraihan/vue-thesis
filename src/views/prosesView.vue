@@ -27,7 +27,7 @@
         </div>
         <div v-if="tahapan>=1" :key="server_node" class="col-span-2 bg-white rounded-md overflow-hidden">
             <!-- <div class="mt-4">Graph:</div> -->
-            <!-- <PlotlyGraph :node="server_node" :edge="server_edge" /> -->
+            <PlotlyGraph :node="server_node" :edge="server_edge" />
         </div>
         <div v-if="tahapan>=1" :key="server_node" class="col-span-3 bg-white rounded-md overflow-hidden">
             <!-- <div class="mt-4">Graph:</div> -->
