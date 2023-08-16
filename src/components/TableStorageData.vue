@@ -2,10 +2,11 @@
 
   <hr class="mt-10 mb-4">
 
-  <div class="home text-center">
-    Data interaksi tersimpan
+  <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mt-3">Local Storage</h2>
+  <div class="inline-block mb-3 py-2 text-sm text-gray-500 text-justify">
+    Data interaksi yang tersimpan. Jika data kosong, silahkan melakukan pencarian data interaksi diatas atau Download example-data di <a href="https://ipb.link/vektorpedia-example-data" class="text-blue-500 underline">link ini</a>.
   </div>
-  Data anda :
+  <div>Data anda :</div>
   <ul>
     <li v-for="(item, key) in storage" :key="key">
       <!-- 🦠 🌱🪲 -->
