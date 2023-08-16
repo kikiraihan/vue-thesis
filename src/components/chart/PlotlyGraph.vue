@@ -37,29 +37,29 @@ export default {
   },
   methods: {
     async plotGraph(container, node, edge) {
-        this.isLoading = true; // Set loading state to true
+      this.isLoading = true; // Set loading state to true
 
-        // Objek data yang akan dikirim
-        const data = {
-            node: node,
-            edge: edge,
-        };
+      // Objek data yang akan dikirim
+      const data = {
+          node: node,
+          edge: edge,
+      };
 
-        try {
-            // Menggunakan axios untuk melakukan permintaan POST
-            const response = await axios.post(this.VUE_APP_API_URL+"/visualisasi/pos", data);
-            // Tangani respons dari server
-            const pos = response.data.pos;
-            const nx_edge = response.data.nx_edge;
-            const nx_node = response.data.nx_node;
-            const tracer = this._buat_tracer(pos,nx_node,nx_edge);
-            this._buat_plot(container, tracer);
-            // console.log(nx_node);
-        } catch (error) {
-            console.error(error);
-        } finally { //dijalankan terus, perbedaan dengan diluar try catch lihat di notion belajar javascript
-          this.isLoading = false; // Set loading state to false regardless of success or error
-        }
+      try {
+          // Menggunakan axios untuk melakukan permintaan POST
+          const response = await axios.post(this.VUE_APP_API_URL+"/visualisasi/pos", data);
+          // Tangani respons dari server
+          const pos = response.data.pos;
+          const nx_edge = response.data.nx_edge;
+          const nx_node = response.data.nx_node;
+          const tracer = this._buat_tracer(pos,nx_node,nx_edge);
+          this._buat_plot(container, tracer);
+          // console.log(nx_node);
+      } catch (error) {
+          console.error(error);
+      } finally { //dijalankan terus, perbedaan dengan diluar try catch lihat di notion belajar javascript
+        this.isLoading = false; // Set loading state to false regardless of success or error
+      }
     },
     _buat_tracer(pos,nx_node,nx_edge){
       var edge_x = [];

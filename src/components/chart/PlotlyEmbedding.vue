@@ -43,36 +43,36 @@ export default {
       this.isLoading = true; // Set loading state to true
 
       // Objek data yang akan dikirim
-        const data = {
-            node: node,
-            edge: edge,
-        };
+      const data = {
+          node: node,
+          edge: edge,
+      };
 
-        try {
-          // Menggunakan axios untuk melakukan permintaan POST
-          const response = await axios.post(this.VUE_APP_API_URL+"/visualisasi/embedding", data);
-  
-          const data_store = usePlotlyEmbeddingStore();
-  
-          // Tangani respons dari server
-          data_store.$patch({
-            embeddings: response.data.embeddings,
-            list_of_entities: response.data.list_of_entities,
-            dictionary_serangga: response.data.dictionary_serangga,
-          });
-          
-          const tracer = this._buat_tracer(
-            data_store.embeddings,
-            data_store.list_of_entities,
-            data_store.dictionary_serangga,
-          );
-  
-          this._buat_plot(container, tracer);
-        } catch (error) {
-            console.error(error);
-        } finally {
-            this.isLoading = false; // Set loading state to false regardless of success or error
-        }
+      try {
+        // Menggunakan axios untuk melakukan permintaan POST
+        const response = await axios.post(this.VUE_APP_API_URL+"/visualisasi/embedding", data);
+
+        const data_store = usePlotlyEmbeddingStore();
+
+        // Tangani respons dari server
+        data_store.$patch({
+          embeddings: response.data.embeddings,
+          list_of_entities: response.data.list_of_entities,
+          dictionary_serangga: response.data.dictionary_serangga,
+        });
+        
+        const tracer = this._buat_tracer(
+          data_store.embeddings,
+          data_store.list_of_entities,
+          data_store.dictionary_serangga,
+        );
+
+        this._buat_plot(container, tracer);
+      } catch (error) {
+          console.error(error);
+      } finally {
+          this.isLoading = false; // Set loading state to false regardless of success or error
+      }
     },
     _buat_tracer(embeddings, list_of_entities, dictionary_serangga){
         const X = embeddings;
