@@ -1,6 +1,6 @@
 <template>
   <div>
-    <LoadingCenterImage v-if="isLoading" :message="'memuat bagan'" />
+    <LoadingCenterImage v-if="isLoading" :message="$t('loading.message.bar')" />
     <div ref="display" class="rounded-md overflow-hidden"></div>
   </div>
 </template>
@@ -50,7 +50,7 @@ export default {
       const data = [trace];
 
       const layout = {
-        title: 'Analisis Taksonomi',
+        title: this.$t('EDBar.title'),
         xaxis: { title: 'Distance' },
         yaxis: { 
           title: 'Insect',

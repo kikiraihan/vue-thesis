@@ -1,9 +1,9 @@
 <template>
 
-    <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mt-3">Akusisi data interaksi</h2>
+    <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mt-3">{{ $t('GetData.1.title') }}</h2>
 
     <div class="inline-block mb-6 py-2  text-sm text-gray-500 text-justify">
-        Proses ini menggunakan GloBI, Wikidata, dan NCBI Taxon Ontology sebagai sumber data. Pencarian data menggunakan teknik breadth first search (BFS) pada graf GloBI sedalam dua lapis interaksi, dimulai dari interaksi virus yang dimasukan (1), kemudian interaksi serangga dan tanaman yang terhubung (2). Data kemudian dipraproses dan distandarisasi menggunakan taxonomy NCBI melalui Wikidata sebagai hub. Data yang tersimpan dapat digunakan untuk analisis serangga vektor.
+        {{ $t('GetData.1.caption') }}
     </div>
 
     <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
@@ -13,13 +13,13 @@
         </div>
         <input v-model="search" type="search"
             class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Nama virus.." required />
+            :placeholder="$t('GetData.1.input.placeholder')" required />
         <button @click="setupSSE" type="submit"
             class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Cari interaksi
+            {{ $t('GetData.1.input.button') }}
         </button>
     </div>
-    <span class="text-sm text-gray-500 pl-2"> *Masukan virus yang akan diambil data interaksinya</span>
+    <span class="text-sm text-gray-500 pl-2"> {{ $t('GetData.1.input.caption') }}</span>
     <div class="w-full h-full block">
         <div class="flex items-center justify-between my-2">
             <p ref="persentase_bar" class="text-gray-400 text-sm"></p>
@@ -35,7 +35,7 @@
     </div>
 
 
-    <div v-if="node" class="mt-4">Proporsi data: </div>
+    <div v-if="node" class="mt-4">{{ $t('GetData.1.proportion') }}</div>
     <PieProporsi :node="node" v-if="node" :key="node" class="mt-2"/>
 
 

@@ -10,7 +10,7 @@
 
   <router-link to="/praproses"
       class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-      Kembali
+      {{$t("button.back")}}
   </router-link>
 </template>
 
@@ -38,7 +38,7 @@ export default {
           reader.onload = () => {
             try {
               localStorage.setItem(virus_txt.toLowerCase(), reader.result);
-              this.$swal.fire(swalAdded(filename+" berhasil ditambahkan"));
+              this.$swal.fire(swalAdded(filename+$t('swal.swalAdded.importData'),));
               this.importedData.push(filename);
             } catch (error) {
               console.error("Error parsing JSON:", error);

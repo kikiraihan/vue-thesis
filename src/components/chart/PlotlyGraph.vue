@@ -1,6 +1,6 @@
 <template>
   <div>
-    <LoadingCenterImage v-if="isLoading" :message="'memuat graf'"/>
+    <LoadingCenterImage v-if="isLoading" :message="$t('loading.message.graph')" />
     <div ref="display"></div>
   </div>
 </template>
@@ -125,7 +125,7 @@ export default {
       var fig = {
           data: data,
           layout: {
-              title: 'Graf serangga-virus-tanaman',
+              title: this.$t('PGBar.title'),
               titlefont: { size: 16 },
               showlegend: false,
               hovermode: 'closest',

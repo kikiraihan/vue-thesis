@@ -1,5 +1,5 @@
 <template>
-    <LoadingCenterImage v-if="isLoading" :message="'memuat fact box'" />
+    <LoadingCenterImage v-if="isLoading" :message="$t('loading.message.factbox')" />
     <EmptyComponent v-if="isEmpty" :title="'Data fact box'"/>
 
     <div v-show="(!isLoading && !isEmpty)" class="p-5 drop-shadow-m rounded-md bg-white w-full grid grid-cols-2 gap-6">

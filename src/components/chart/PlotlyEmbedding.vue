@@ -1,6 +1,6 @@
 <template>
   <div>
-    <LoadingCenterImage v-if="isLoading" :message="'memuat embedding'" />
+    <LoadingCenterImage v-if="isLoading" :message="$t('loading.message.embedding')" />
     <div ref="display"></div>
   </div>
 </template>
@@ -150,7 +150,7 @@ export default {
                     // // Mengatur urutan legenda berdasarkan urutan yang telah diurutkan
                     // traceorder: 'normal'
                 },
-                title: 'Embedding taksonomi serangga',
+                title: this.$t('PEBar.title'),
                 titlefont: { size: 16 },
                 showlegend: true,
                 hovermode: 'closest',

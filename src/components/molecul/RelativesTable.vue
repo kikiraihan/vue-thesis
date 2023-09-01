@@ -1,16 +1,16 @@
 <template>
-    <LoadingCenterImage v-if="isLoading" :message="'memuat tabel'" />
+    <LoadingCenterImage v-if="isLoading" :message="$t('loading.message.table')" />
     <EmptyComponent v-if="isEmpty" :title="'Data kerabat takson'"/>
     <div class="bg-white pb-4 pt-2 px-2 rounded-md w-full" v-show="(!isLoading && !isEmpty)">
         <div class="overflow-y-scroll" style="max-height: 400px;">
             <table class="table-auto border-collapse w-full text-center">
                 <caption class="caption-top mb-1">
-                    <i class="bx bx-bug"></i> Kerabat takson {{name}}
+                    <i class="bx bx-bug"></i> {{$t('relativesTable.title')}} {{name}}
                 </caption>
                 <thead>
                     <tr class="rounded-lg text-sm font-medium text-gray-700 bg-gray-200" style="font-size: 0.9674rem">
                         <th class="px-4 py-2">No</th>
-                        <th class="px-4 py-2 text-left">Serangga</th>
+                        <th class="px-4 py-2 text-left">{{$t("serangga")}}</th>
                         <th class="px-4 py-2 text-right">Tingkatan</th>
                     </tr>
                 </thead>
