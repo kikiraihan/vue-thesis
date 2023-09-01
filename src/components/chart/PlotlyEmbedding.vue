@@ -150,7 +150,7 @@ export default {
                     // // Mengatur urutan legenda berdasarkan urutan yang telah diurutkan
                     // traceorder: 'normal'
                 },
-                title: 'Embedding taksonomi serangga',
+                title: this.$t('PEBar.title'),
                 titlefont: { size: 16 },
                 showlegend: true,
                 hovermode: 'closest',

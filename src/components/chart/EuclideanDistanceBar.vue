@@ -50,7 +50,7 @@ export default {
       const data = [trace];
 
       const layout = {
-        title: 'Analisis Taksonomi',
+        title: this.$t('EDBar.title'),
         xaxis: { title: 'Distance' },
         yaxis: { 
           title: 'Insect',

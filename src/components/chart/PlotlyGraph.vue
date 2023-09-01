@@ -125,7 +125,7 @@ export default {
       var fig = {
           data: data,
           layout: {
-              title: 'Graf serangga-virus-tanaman',
+              title: this.$t('PGBar.title'),
               titlefont: { size: 16 },
               showlegend: false,
               hovermode: 'closest',

@@ -32,3 +32,9 @@ export function replaceSpaceWithUnderscore(str){
 export function replaceUnderscoreWithSpace(str){
   return str.replace(/_/g, ' ');
 }
+
+
+export function removeItemFromArray(array, toRemove){
+  const filteredItems = array.filter(item => item !== toRemove);
+  return filteredItems;
+}

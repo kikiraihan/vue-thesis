@@ -51,7 +51,7 @@ export default {
       const data = [trace];
 
       const layout = {
-        title: 'Final Score (Kombinasi)',
+        title: this.$t('FSBar.title'),
         xaxis: { title: 'Score' },
         yaxis: { 
           title: 'Insect',

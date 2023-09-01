@@ -6,7 +6,7 @@
         </div>
         <button @click="open = ! open" type="button" class="cursor-pointer pl-10 p-4 text-sm w-full flex justify-between bg-white text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-inset focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             <span :key="terpilih">
-                {{ terpilih? "Graf "+terpilih : "pilih data interaksi virus" }}
+                {{ terpilih? terpilih : $t('AnalyseData.1.input.placeholder') }}
             </span>
             <!-- <div class="absolute right-0 bottom-1.5 font-medium px-4 py-2">
                 <i class="bx bx-caret-down text-xl text-gray-500"></i>
@@ -14,7 +14,7 @@
         </button>
         <button @click="$emit('proses-visualisasi')" type="submit"
             class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Proses
+            {{$t('AnalyseData.1.input.button')}}
         </button>
 
         <div v-show="open" class="rounded shadow-md my-2 absolute pin-t pin-l bg-gray-50 w-full z-20">

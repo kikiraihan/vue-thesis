@@ -8,7 +8,7 @@ export function swalMessageError(info) {
             toast.addEventListener('mouseleave', Swal.resumeTimer)
         },
         icon: 'warning',
-        title: 'Pesan error',
+        title: 'Error message',
         text: info,
     };
     //$('#modalInput').modal('hide');
@@ -26,7 +26,7 @@ export function swalMessageErrorWithTimer(info) {
             toast.addEventListener('mouseleave', Swal.resumeTimer)
         },
         icon: 'warning',
-        title: 'Pesan error',
+        title: 'Error message',
         text: info,
     };
     //$('#modalInput').modal('hide');
@@ -44,7 +44,7 @@ export function swalAdded(message='berhasil menambahkan data!') {
             toast.addEventListener('mouseleave', Swal.resumeTimer)
         },
         icon: 'success',
-        title: 'Berhasil',
+        title: 'Success',
         text: message,
     };
     //$('#modalInput').modal('hide');
@@ -62,8 +62,8 @@ export function swalUpdated() {
             toast.addEventListener('mouseleave', Swal.resumeTimer)
         },
         icon: 'success',
-        title: 'Berhasil',
-        text: 'data telah diubah!',
+        title: 'Success',
+        text: $t('swal.swalUpdated'),
         confirmButtonText: 'Oke',
     };
     //dropUpOpen=false;
@@ -73,8 +73,8 @@ export function swalUpdated() {
 export function swalDeleted() {
     return {
         icon: 'success',
-        title: 'Terhapus!',
-        text: 'data telah dihapus.',
+        title: 'Deleted!',
+        text: $t('swal.swalDeleted'),
         timer: 1000,
         timerProgressBar: true,
         showConfirmButton: false,

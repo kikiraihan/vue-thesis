@@ -5,6 +5,11 @@
             <!-- <img class="w-auto h-8 inline" src="@/assets/logo-2.png" alt=""/> -->
             <i class="bx bxs-bug text-2xl text-orange-300 rotate-12"></i>
             <span class="font-bold text-2xl" style="font-family: 'Oswald', sans-serif;"><span class="text-orange-300">Vektor</span>pedia</span>
+            <select v-model="$i18n.locale" class="cursor-pointer border border-1 border-gray-500 rounded ml-3 opacity-50" @change="changeLocale($event.target.value)">
+                <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">
+                    {{ locale }}
+                </option>
+            </select>
         </a>
         <div class="flex flex-row">
             <router-link v-for="route in routes" :key="route.path" :to="route.path"
@@ -17,6 +22,8 @@
 </template>
 
 <script>
+    import {swalAdded} from '@/helpers/sweetAlertHelper.js';
+    
     export default {
         name: 'Navbar',
         data() {
@@ -26,9 +33,16 @@
                 { path: "/praproses", title: "Get Data", icon: "bx bx-file-find" },
                 { path: "/proses", title: "Analyse Data", icon: "bx bx-analyse" },
                 // { path: "/visualisasi", name: "visualisasi", icon: "bx bx-network-chart"},
-                ]
+                ],
             };
         },
+        methods: {
+            changeLocale(item) {
+                console.log('bahasa diubah ke :',item);
+                // this.$swal.fire(swalAdded("Language changed to "+item+" successfully"));
+                localStorage.setItem('locale', item);
+            },
+        }
     }
 </script>
 

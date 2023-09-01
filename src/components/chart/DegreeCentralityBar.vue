@@ -63,7 +63,7 @@ export default {
       const data = [trace];
 
       const layout = {
-        title: 'Analisis Interaksi',
+        title: this.$t('DCBar.title'),
         xaxis: { 
           title: 'Degree'
         },

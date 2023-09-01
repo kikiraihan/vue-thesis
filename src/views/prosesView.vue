@@ -1,10 +1,9 @@
 <template>
     <LoadingFullPageImage v-if="isFullLoading"/>
 
-    <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mt-3">Analisis Data</h2>
+    <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mt-3">{{$t('AnalyseData.1.title')}}</h2>
     <div class="inline-block mb-6 py-2  text-md text-gray-500 text-justify">
-        Pada bagian ini data yang sudah diakuisisi akan diolah untuk mendapatkan informasi yang lebih berguna.
-        Menu ini akan berisi visualisasi graf interaksi virus serangga tanaman, dan analisis untuk menemukan vektor virus, dan <i>enhancement</i> (pengayaan) informasi serangga vektor.
+        {{$t('AnalyseData.1.caption')}}
     </div>
 
     <div class="grid grid-cols-1 gap-2">
@@ -12,11 +11,11 @@
             <SelectSearchLite :terpilih="pilihan_data_interaksi" @proses-visualisasi="prosesVisualisasi">
                 <li v-for="(item, key) in storage" :key="key">
                     <span @click="pilih(item);" class="p-2 block text-black hover:bg-blue-200 cursor-pointer">
-                        Graf {{ item }}
+                        {{ item }}
                     </span>
                 </li>
             </SelectSearchLite>
-            <span class="text-sm text-gray-500 pl-2"> *Pilih data interaksi yang telah diakusisi sebelumnya pada menu Get Data.</span>
+            <span class="text-sm text-gray-500 pl-2"> {{$t('AnalyseData.1.input.caption')}}</span>
         </div>
     </div>
 
@@ -37,16 +36,16 @@
 
 
     <div v-if="tahapan>=1" class="mt-12">
-        <h3 class="text-3xl font-semibold text-gray-800 dark:text-white">Mulai Analisis</h3>
+        <h3 class="text-3xl font-semibold text-gray-800 dark:text-white">{{$t('AnalyseData.2.title')}}</h3>
         <div class="inline-block mb-6 py-2  text-md text-gray-500 text-justify">
-            Pada tahap ini setiap serangga akan dianalisis potensinya sebagai vektor <!-- dari <b style="color:#671F92">{{pilihan_data_interaksi}}</b> --> berdasarkan interaksinya pada graf dan taksonominya pada embedding. Proses ini akan menghasilkan skor akhir untuk setiap serangga yang kemudian akan diurutkan berdasarkan skor tersebut.
+            {{$t('AnalyseData.2.caption')}}
         </div>
     </div>
 
     <div class="flex bg-neutral-50 rounded-lg p-4 mb-4 text-sm text-neutral-700" role="alert"  v-if="(tampil_proses_analisis) && takson_acuan_rekomendasi">
         <i class='bx bx-info-circle mr-1'></i>
         <div class="text-sm mb-2 text-justify">
-            <b class="capitalize" style="color: #671F92">{{pilihan_data_interaksi}}</b> berasal dari famili <b class="capitalize" style="color: #671F92">{{takson_virus['family']}}</b>. Famili virus tersebut memiliki asosiasi dengan serangga dari famili <b class="capitalize" style="color: #B22222">{{takson_acuan_rekomendasi}}</b>, sehingga takson acuannya adalah <b class="capitalize" style="color: #B22222">{{takson_acuan_rekomendasi}}</b>.
+            <b class="capitalize" style="color: #671F92">{{pilihan_data_interaksi}}</b> {{$t('AnalyseData.2.input.caption2.1')}} <b class="capitalize" style="color: #671F92">{{takson_virus['family']}}</b>. {{$t('AnalyseData.2.input.caption2.2')}} <b class="capitalize" style="color: #B22222">{{takson_acuan_rekomendasi}}</b>, {{$t('AnalyseData.2.input.caption2.3')}} <b class="capitalize" style="color: #B22222">{{takson_acuan_rekomendasi}}</b>.
         </div>
     </div>
 
@@ -61,13 +60,13 @@
             </div>
             <input v-model="takson_acuan" type="search"
                 class="block w-full p-4 pl-10 text-sm bg-white text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-inset focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Takson acuan.." required />
+                :placeholder="$t('AnalyseData.2.input.placeholder')" required />
             <button @click="prosesAnalisis" type="submit"
                 class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Proses
+                {{$t('AnalyseData.2.input.button')}}
             </button>
         </div>
-        <span class="text-sm text-gray-500 pl-2" v-if="tampil_proses_analisis"> *Takson acuan adalah ciri taksonomi (ordo, famili, atau genus) dari serangga yang telah diketahui sebelumnya adalah serangga vektor <!-- dan akan dijadikan acuan untuk mencari vektor virus -->.</span>
+        <span class="text-sm text-gray-500 pl-2" v-if="tampil_proses_analisis"> {{$t('AnalyseData.2.input.caption')}} <!-- dan akan dijadikan acuan untuk mencari vektor virus -->.</span>
         
     </div>
 
@@ -80,9 +79,9 @@
     </div>
 
     <div v-if="tahapan>=3" class="mt-12">
-        <h3 class="text-3xl font-semibold text-gray-800 dark:text-white">Enhancement</h3>
+        <h3 class="text-3xl font-semibold text-gray-800 dark:text-white">{{$t('AnalyseData.3.title')}}</h3>
         <div class="inline-block mb-3 py-2  text-sm text-gray-500">
-            Informasi detail serangga vektor <b>{{enhancement_data_store.insect_name}}</b>
+            {{$t('AnalyseData.3.caption')}} <b>{{enhancement_data_store.insect_name}}</b>
         </div>
     </div>
 
@@ -127,8 +126,7 @@
     import {useDataToCountStore} from "@/stores/DataToCount.store.js";
     import {useEnhancementDataStore} from "@/stores/EnhancementData.store.js";
     import { usePolaTaksonomiStore } from '@/stores/PolaTaksonomi.store';
-
-
+    const getStorage = Object.keys(localStorage)
 
     export default {
         name: "ProsesView",
@@ -151,7 +149,7 @@
         },
         data() {
             return {
-                storage: Object.keys(localStorage),
+                storage: getStorage.filter(item => item !== "locale"),
                 server_node: null,
                 server_edge: null,
                 df_node: null,
@@ -182,7 +180,7 @@
             },
             prosesVisualisasi() {
                 if(this.pilihan_data_interaksi==null)
-                    return this.$swal.fire(swalMessageErrorWithTimer("Pilih data interaksi virus dulu"));
+                    return this.$swal.fire(swalMessageErrorWithTimer($t('swal.swalMessageErrorWithTimer.importData')));
 
                 const item = this.pilihan_data_interaksi;
                 const ParseFromStorage = JSON.parse(localStorage.getItem(item));

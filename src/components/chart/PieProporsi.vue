@@ -27,11 +27,20 @@ export default {
       const labels = groupedData.toDict()["group"];
       const colors = groupedData.toDict()["color"];
       const slices = groupedData.toDict()["count"];
+
+      // english labels
+      const replacements = {
+        "serangga": "Insect",
+        "virus": "Virus",
+        "tanaman": "Plant",
+      };
+      const englishLabels = labels.map(item => replacements[item] || item);
+
       // set data
       var data = [
         {
           values: slices,
-          labels: labels,
+          labels: englishLabels,
           marker: {
             colors: colors,
           },
