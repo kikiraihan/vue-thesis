@@ -38,8 +38,8 @@
         },
         methods: {
             changeLocale(item) {
-                console.log('bahasa diubah ke :',item);
-                // this.$swal.fire(swalAdded("Language changed to "+item+" successfully"));
+                // console.log('bahasa diubah ke :',item);
+                this.$swal.fire(swalAdded("Language changed to "+item));
                 localStorage.setItem('locale', item);
             },
         }
