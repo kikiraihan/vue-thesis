@@ -4,7 +4,7 @@
 
   <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mt-3">{{ $t('GetData.2.title') }}</h2>
   <div class="inline-block mb-3 py-2 text-sm text-gray-500 text-justify">
-    {{$t('GetData.2.caption.1')}} <a href="https://ipb.link/vektorpedia-example-data" class="text-blue-500 underline" target="_blank">{{$t('GetData.2.caption.2')}}.</a> {{$t('GetData.2.caption.3')}}.
+    {{$t('GetData.2.caption.1')}} <a href="https://ipb.link/vektorpedia-example-data" class="text-blue-500 underline" target="_blank">{{$t('GetData.2.caption.2')}}, </a> {{$t('GetData.2.caption.3')}}.
   </div>
   <div>{{ $t('GetData.2.data') }}</div>
   <ul>
