@@ -6,7 +6,6 @@
         {{$t('AnalyseData.1.caption')}}
     </div>
 
-
     <div class="grid grid-cols-1 gap-2">
         <div>
             <SelectSearchLite :terpilih="pilihan_data_interaksi" @proses-visualisasi="prosesVisualisasi">
