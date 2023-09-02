@@ -38,7 +38,7 @@
   "DCBar.title": "Interaction Analysis",
   "rankTable.title": "Table of Potential Insect Vectors",
   "rankTable.caption": "*Sorted by final score",
-  "Natural EnemiesTable.title": "Natural Enemies",
+  "musuhAlamiTable.title": "Natural Enemies",
   "relativesTable.title": "Taxon relatives",
 
   "swal.swalDeleted": "data has been changed!",
