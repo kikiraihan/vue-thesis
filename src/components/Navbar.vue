@@ -1,7 +1,7 @@
 <template>
     <nav
         class="font-sans flex flex-col text-center sm:flex-row sm:text-left sm:justify-between  px-6 bg-white shadow sm:items-baseline w-full">
-        <a class="flex items-center py-3">
+        <a class="flex items-center py-3" href="/">
             <!-- <img class="w-auto h-8 inline" src="@/assets/logo-2.png" alt=""/> -->
             <i class="bx bxs-bug text-2xl text-orange-300 rotate-12"></i>
             <span class="font-bold text-2xl" style="font-family: 'Oswald', sans-serif;"><span class="text-orange-300">Vektor</span>pedia</span>
