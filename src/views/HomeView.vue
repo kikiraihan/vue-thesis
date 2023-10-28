@@ -11,7 +11,7 @@
       <p class="mb-2 text-sm font-semibold leading-none text-left text-indigo-600 uppercase">Get Data</p>
       <h3 class="mt-2 text-2xl sm:text-left md:text-4xl">Build insect-virus-plant interaction graph</h3>
       <p class="mt-5 text-lg text-gray-700 text md:text-left">
-        By entering name of virus, you can discover graphs of complex interactions between insects, viruses and plants by utilizing data from <a href="https://www.globalbioticinteractions.org/" class="text-blue-400">Global Biotic Interaction (GloBI)</a>.
+        Discover graphs of complex interactions between insects, viruses and plants by utilizing data from <a href="https://www.globalbioticinteractions.org/" class="text-blue-400">Global Biotic Interaction (GloBI)</a>. Discover and build graphs just by entering the name of the virus.
       </p>
     </div>
   </div>
