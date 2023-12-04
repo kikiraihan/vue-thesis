@@ -26,7 +26,7 @@
                         <td class="px-2 py-1">
                             <!-- prosesEnhancement(item[0],item[2]) -->
                             <button @click="$emit('proseskanEnhancement',item[2],item[0])" class="bg-blue-500 hover:bg-blue-700 text-white  py-0.5 px-2 rounded-md">
-                                Enhance
+                                Detail
                             </button>
                         </td>
                     </tr>
