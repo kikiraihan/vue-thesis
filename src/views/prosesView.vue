@@ -66,7 +66,7 @@
                 {{$t('AnalyseData.2.input.button')}}
             </button>
         </div>
-        <span class="text-sm text-gray-500 pl-2" v-if="tampil_proses_analisis"> {{$t('AnalyseData.2.input.caption')}} <!-- dan akan dijadikan acuan untuk mencari vektor virus -->.</span>
+        <span class="text-sm text-gray-500 pl-2" v-if="tampil_proses_analisis"> {{$t('AnalyseData.2.input.caption')}} <!-- dan akan dijadikan acuan untuk mencari vektor virus --></span>
         
     </div>
 
